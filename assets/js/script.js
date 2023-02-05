@@ -26,6 +26,8 @@ let day5Date = ""
 let day5Icon = ""
 let day5Temperature = ""
 let day5Hudmity = ""
+let todaySection = $('#today')
+let cityName =""
 
 
 $('#search-button').on("click", function(){
@@ -34,7 +36,7 @@ $('#search-button').on("click", function(){
 })
 
 function getCity(){
-    let cityName = $("#search-input").val()
+    cityName = $("#search-input").val()
     console.log(cityName)
     let queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=10&appid="+apiKey
     $.ajax({
@@ -60,6 +62,7 @@ function currentForecast(){
         currentTemperature = response.main.temp
         currentHumdity = response.main.humidity
         currentWind = response.wind.speed
+        printTodayWeather();
     }
     )
 }
@@ -91,18 +94,19 @@ function fiveDayForecast(){
         day5Icon = response.list[36].weather.icon
         day5Temperature = response.list[36].main.temp
         day5Hudmity = response.list[36].main.humidity
-        console.log(day1Temperature)
-        console.log(day2Temperature)
-        console.log(day3Temperature)
-        console.log(day4Temperature)
-        console.log(day5Temperature)
-        console.log(day1Date)
-        console.log(day2Date)
-        console.log(day3Date)
-        console.log(day4Date)
-        console.log(day5Date)
-
     }
     )
 }
 
+function printTodayWeather(){
+    let todayDate = $('<h2>').text(`${cityName}: ${currentDate.format("DD/MM/YYYY")}`);
+    let todayIcon = $('<img>').attr("src", "http://openweathermap.org/img/w/"+currentIcon+".png");
+    let todayTemp =$('<p>').text(`The current temperature is ${(currentTemperature-273.15).toFixed(2)} degrees celsius`);
+    let todayHudmidity = $('<p>').text(`The current humidity is: ${currentHumdity}%`);
+    let todayWind = $('<p>').text(`The current wind speed is: ${currentWind}mph`);
+    todaySection.append(todayDate)
+    todaySection.append(todayIcon)
+    todaySection.append(todayTemp)
+    todaySection.append(todayHudmidity)
+    todaySection.append(todayWind)
+}

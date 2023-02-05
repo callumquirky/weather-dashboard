@@ -71,26 +71,37 @@ function fiveDayForecast(){
         method:"GET"
     }).then(function(response) {
         console.log(response)
-        day1Date = response.list[1].moment(dt).format("D/M/YYYY")
-        day1Icon = response.list[1].weather.icon
-        day1Temperature = response.list[1].main.temp
-        day1Hudmity = response.list[1].main.humidity
-        day2Date = response.list[2].moment(dt).format("D/M/YYYY")
-        day2Icon = response.list[2].weather.icon
-        day2Temperature = response.list[2].main.temp
-        day2Hudmity = response.list[2].main.humidity
-        day3Date = response.list[3].moment(dt).format("D/M/YYYY")
-        day3Icon = response.list[3].weather.icon
-        day3Temperature = response.list[3].main.temp
-        day3Hudmity = response.list[3].main.humidity
-        day4Date = response.list[4].moment(dt).format("D/M/YYYY")
-        day4Icon = response.list[4].weather.icon
-        day4Temperature = response.list[4].main.temp
-        day4Hudmity = response.list[4].main.humidity
-        day5Date = response.list[5].moment(dt).format("D/M/YYYY")
-        day5Icon = response.list[5].weather.icon
-        day5Temperature = response.list[5].main.temp
-        day5Hudmity = response.list[5].main.humidity
+        day1Date = response.list[4].dt
+        day1Icon = response.list[4].weather.icon
+        day1Temperature = response.list[4].main.temp
+        day1Hudmity = response.list[4].main.humidity
+        day2Date = response.list[12].dt
+        day2Icon = response.list[12].weather.icon
+        day2Temperature = response.list[12].main.temp
+        day2Hudmity = response.list[12].main.humidity
+        day3Date = response.list[20].dt
+        day3Icon = response.list[20].weather.icon
+        day3Temperature = response.list[20].main.temp
+        day3Hudmity = response.list[20].main.humidity
+        day4Date = response.list[28].dt
+        day4Icon = response.list[28].weather.icon
+        day4Temperature = response.list[28].main.temp
+        day4Hudmity = response.list[28].main.humidity
+        day5Date = response.list[36].dt
+        day5Icon = response.list[36].weather.icon
+        day5Temperature = response.list[36].main.temp
+        day5Hudmity = response.list[36].main.humidity
+        console.log(day1Temperature)
+        console.log(day2Temperature)
+        console.log(day3Temperature)
+        console.log(day4Temperature)
+        console.log(day5Temperature)
+        console.log(day1Date)
+        console.log(day2Date)
+        console.log(day3Date)
+        console.log(day4Date)
+        console.log(day5Date)
+
     }
     )
 }

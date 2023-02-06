@@ -38,6 +38,12 @@ let savedCities = JSON.parse(localStorage.getItem('savedCities')) ?? [];
 
 $('#search-button').on("click", function(){
     event.preventDefault();
+    $('#today').html("")
+    day1Section.html("")
+    day2Section.html("")
+    day3Section.html("")
+    day4Section.html("")
+    day5Section.html("")
     getCity()
     addCityHistory();
 })

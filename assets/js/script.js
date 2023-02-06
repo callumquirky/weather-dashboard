@@ -33,11 +33,13 @@ let day3Section = $('#day-3-card')
 let day4Section = $('#day-4-card')
 let day5Section = $('#day-5-card')
 let cityName =""
+let savedCities = JSON.parse(localStorage.getItem('savedCities')) ?? [];
 
 
 $('#search-button').on("click", function(){
     event.preventDefault();
     getCity()
+    addCityHistory();
 })
 
 function getCity(){
@@ -161,3 +163,44 @@ function print5DayForecast(){
     day5Section.append(day5HumidityEl)
 
 }
+
+function createCityHistory() {
+        localStorage.setItem("savedCities", JSON.stringify(savedCities))
+        savedCities = JSON.parse(localStorage.getItem('savedCities')) ?? [];
+        for (let i=0; i<savedCities.length; i++) {
+            let  savedCity = savedCities[i];
+            let savedCityButt = $('<button>');
+            savedCityButt.text(`${savedCity}`);
+            $('#history').append(savedCityButt)
+        }
+    }
+function addCityHistory() {
+    $('#history').html("")
+    cityName = $("#search-input").val();
+    for (let index = 0; index < savedCities.length; index++) {
+        if (cityName === savedCities[index]){
+            console.log(cityName)
+            console.log(savedCities)
+            createCityHistory();
+            return;
+        }
+    }
+    if (cityName === ""){
+        return;
+    }
+    else {
+        savedCities.push(cityName);
+        localStorage.setItem("savedCities", JSON.stringify(savedCities))
+    }
+    createCityHistory()        
+    }
+    
+createCityHistory()
+
+
+
+
+$('#clear-history').on("click", function(){
+    localStorage.clear()
+     $('#history').html("")
+})

@@ -44,12 +44,12 @@ $('#search-button').on("click", function(){
     day3Section.html("")
     day4Section.html("")
     day5Section.html("")
-    getCity()
+    getCity($("#search-input").val())
     addCityHistory();
 })
 
-function getCity(){
-    cityName = $("#search-input").val()
+function getCity(givenCity){
+    cityName = givenCity
     console.log(cityName)
     let queryURL = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=10&appid="+apiKey
     $.ajax({
@@ -176,7 +176,7 @@ function createCityHistory() {
         for (let i=0; i<savedCities.length; i++) {
             let  savedCity = savedCities[i];
             let savedCityButt = $('<button>');
-            savedCityButt.text(`${savedCity}`);
+            savedCityButt.text(`${savedCity}`).attr("class", "city-button");
             $('#history').append(savedCityButt)
         }
     }
@@ -204,7 +204,16 @@ function addCityHistory() {
 createCityHistory()
 
 
-
+$('.city-button').on("click", function(){
+    event.preventDefault();
+    $('#today').html("")
+    day1Section.html("")
+    day2Section.html("")
+    day3Section.html("")
+    day4Section.html("")
+    day5Section.html("")
+    getCity($(this).text())
+})
 
 $('#clear-history').on("click", function(){
     localStorage.clear()

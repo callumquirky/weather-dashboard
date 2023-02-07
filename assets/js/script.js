@@ -36,7 +36,7 @@ let cityName =""
 let savedCities = JSON.parse(localStorage.getItem('savedCities')) ?? [];
 
 
-$('#search-button').on("click", function(){
+$('#search-button').on("click", function(event){
     event.preventDefault();
     $('#today').html("")
     day1Section.html("")
@@ -127,41 +127,41 @@ function printTodayWeather(){
 }
 
 function print5DayForecast(){
-    let day1DateEl = $('<h2>').text(`${moment.unix(day1Date).format("DD/MM/YYYY")}`);
+    let day1DateEl = $('<h4>').text(`${moment.unix(day1Date).format("DD/MM/YYYY")}`);
     let day1IconEl = $('<img>').attr("src", "http://openweathermap.org/img/w/"+day1Icon+".png");
-    let day1TemperatureEl = $('<p>').text(`${(day1Temperature-273.15).toFixed(2)} degrees celsius`);
+    let day1TemperatureEl = $('<p>').text(`${(day1Temperature-273.15).toFixed(2)}°C`);
     let day1HumidityEl = $('<p>').text(`${day1Humidity}% humidity`);
     day1Section.append(day1DateEl)
     day1Section.append(day1IconEl)
     day1Section.append(day1TemperatureEl)
     day1Section.append(day1HumidityEl)
-    let day2DateEl = $('<h2>').text(`${moment.unix(day2Date).format("DD/MM/YYYY")}`);
+    let day2DateEl = $('<h4>').text(`${moment.unix(day2Date).format("DD/MM/YYYY")}`);
     let day2IconEl = $('<img>').attr("src", "http://openweathermap.org/img/w/"+day2Icon+".png");
-    let day2TemperatureEl = $('<p>').text(`${(day2Temperature-273.15).toFixed(2)} degrees celsius`);
+    let day2TemperatureEl = $('<p>').text(`${(day2Temperature-273.15).toFixed(2)}°C`);
     let day2HumidityEl = $('<p>').text(`${day2Humidity}% humidity`);
     day2Section.append(day2DateEl)
     day2Section.append(day2IconEl)
     day2Section.append(day2TemperatureEl)
     day2Section.append(day2HumidityEl)
-    let day3DateEl = $('<h2>').text(`${moment.unix(day3Date).format("DD/MM/YYYY")}`);
+    let day3DateEl = $('<h4>').text(`${moment.unix(day3Date).format("DD/MM/YYYY")}`);
     let day3IconEl = $('<img>').attr("src", "http://openweathermap.org/img/w/"+day3Icon+".png");
-    let day3TemperatureEl = $('<p>').text(`${(day3Temperature-273.15).toFixed(2)} degrees celsius`);
+    let day3TemperatureEl = $('<p>').text(`${(day3Temperature-273.15).toFixed(2)}°C`);
     let day3HumidityEl = $('<p>').text(`${day3Humidity}% humidity`);
     day3Section.append(day3DateEl)
     day3Section.append(day3IconEl)
     day3Section.append(day3TemperatureEl)
     day3Section.append(day3HumidityEl)
-    let day4DateEl = $('<h2>').text(`${moment.unix(day4Date).format("DD/MM/YYYY")}`);
+    let day4DateEl = $('<h4>').text(`${moment.unix(day4Date).format("DD/MM/YYYY")}`);
     let day4IconEl = $('<img>').attr("src", "http://openweathermap.org/img/w/"+day4Icon+".png");
-    let day4TemperatureEl = $('<p>').text(`${(day4Temperature-273.15).toFixed(2)} degrees celsius`);
+    let day4TemperatureEl = $('<p>').text(`${(day4Temperature-273.15).toFixed(2)}°C`);
     let day4HumidityEl = $('<p>').text(`${day4Humidity}% humidity`);
     day4Section.append(day4DateEl)
     day4Section.append(day4IconEl)
     day4Section.append(day4TemperatureEl)
     day4Section.append(day4HumidityEl)
-    let day5DateEl = $('<h2>').text(`${moment.unix(day5Date).format("DD/MM/YYYY")}`);
+    let day5DateEl = $('<h4>').text(`${moment.unix(day5Date).format("DD/MM/YYYY")}`);
     let day5IconEl = $('<img>').attr("src", "http://openweathermap.org/img/w/"+day5Icon+".png");
-    let day5TemperatureEl = $('<p>').text(`${(day5Temperature-273.15).toFixed(2)} degrees celsius`);
+    let day5TemperatureEl = $('<p>').text(`${(day5Temperature-273.15).toFixed(2)}°C`);
     let day5HumidityEl = $('<p>').text(`${day5Humidity}% humidity`);
     day5Section.append(day5DateEl)
     day5Section.append(day5IconEl)
@@ -204,7 +204,7 @@ function addCityHistory() {
 createCityHistory()
 
 
-$('.city-button').on("click", function(){
+$(document).on("click", ".city-button", function(event){
     event.preventDefault();
     $('#today').html("")
     day1Section.html("")

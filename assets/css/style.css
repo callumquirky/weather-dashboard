@@ -1,0 +1,84 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+header {
+    background-color:#CDB4DB;
+}
+
+aside {
+    background-color: #A2D2FF;
+    margin-top: 1vh;
+}
+
+#today {
+    background-color: #FFAFCC;
+    position:relative;
+    margin-top: 1vh !important;
+}
+
+#today h2 {
+    padding-top: 0.5vh;
+}
+
+#today p{
+    padding-bottom: 0.5vh;
+}
+
+#today h2, p, img {
+    padding-left: 1vw;
+}
+
+
+#today img {
+    height: 8vh;
+}
+
+#forecast-cards {
+    justify-content: space-evenly;
+}
+
+.forecast-card{
+    height: 25vh;
+    width: 11.5vw;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important; 
+    justify-content: center !important;
+    
+}
+
+.forecast-card h4 {
+    font-size: 2vw;
+}
+
+.forecast-card img {
+    height: 40%;
+    
+}
+
+.forecast-card p {
+    font-size: 1.25vw
+}
+
+.search-button {
+    margin-top: 1vh;
+    margin-right: 1vw;
+    background-color: #FFC8DD;
+    
+}
+
+.city-button {
+    background-color: #BDE0FE;
+    margin-bottom: 1vh;
+}
+
+.search-button:hover{
+    background-color: #FFAFCC;
+}
+
+.city-button:hover {
+    background-color: #CDB4DB;
+
+}

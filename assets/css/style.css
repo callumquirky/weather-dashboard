@@ -40,7 +40,7 @@ aside {
 
 .forecast-card{
     height: 25vh;
-    width: 11.5vw;
+    width: 10vw;
     margin: 5px;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@ aside {
 }
 
 .forecast-card h4 {
-    font-size: 2vw;
+    font-size: 1.7vw;
 }
 
 .forecast-card img {

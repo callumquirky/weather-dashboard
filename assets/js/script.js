@@ -107,7 +107,6 @@ function fiveDayForecast(){
         day5Icon = response.list[36].weather[0].icon
         day5Temperature = response.list[36].main.temp
         day5Humidity = response.list[36].main.humidity
-        console.log(day1Icon)
         print5DayForecast();
     }
     )
@@ -116,9 +115,9 @@ function fiveDayForecast(){
 function printTodayWeather(){
     let todayDate = $('<h2>').text(`${cityName}: ${currentDate.format("DD/MM/YYYY")}`);
     let todayIcon = $('<img>').attr("src", "http://openweathermap.org/img/w/"+currentIcon+".png");
-    let todayTemp =$('<p>').text(`The current temperature is ${(currentTemperature-273.15).toFixed(2)} degrees celsius`);
+    let todayTemp =$('<p>').text(`The current temperature is ${(currentTemperature-273.15).toFixed(2)}°C`);
     let todayHudmidity = $('<p>').text(`The current humidity is: ${currentHumidity}%`);
-    let todayWind = $('<p>').text(`The current wind speed is: ${currentWind}mph`);
+    let todayWind = $('<p>').text(`The current wind speed is: ${(currentWind*2.237).toFixed(2)}mph`);
     todaySection.append(todayDate)
     todaySection.append(todayIcon)
     todaySection.append(todayTemp)

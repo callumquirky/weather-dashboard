@@ -50,7 +50,6 @@ $('#search-button').on("click", function(event){
 
 function getCity(givenCity){
     cityName = givenCity
-    console.log(cityName)
     let queryURL = "https://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=10&appid="+apiKey
     $.ajax({
         url:queryURL,
@@ -86,9 +85,7 @@ function fiveDayForecast(){
         url:queryURL,
         method:"GET"
     }).then(function(response) {
-        console.log(response)
         let index12PM = response.list.findIndex(item => item.dt_txt.substring(11) === ("12:00:00"))
-        console.log(index12PM)
         day1Date = response.list[index12PM].dt
         day1Icon = response.list[index12PM].weather[0].icon
         day1Temperature = response.list[index12PM].main.temp
@@ -186,8 +183,6 @@ function addCityHistory() {
     cityName = $("#search-input").val();
     for (let index = 0; index < savedCities.length; index++) {
         if (cityName === savedCities[index]){
-            console.log(cityName)
-            console.log(savedCities)
             createCityHistory();
             return;
         }

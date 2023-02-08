@@ -114,7 +114,7 @@ function fiveDayForecast(){
 
 function printTodayWeather(){
     let todayDate = $('<h2>').text(`${cityName}: ${currentDate.format("DD/MM/YYYY")}`);
-    let todayIcon = $('<img>').attr("src", "http://openweathermap.org/img/w/"+currentIcon+".png");
+    let todayIcon = $('<img>').attr("src", "https://openweathermap.org/img/w/"+currentIcon+".png");
     let todayTemp =$('<p>').text(`The current temperature is ${(currentTemperature-273.15).toFixed(2)}°C`);
     let todayHudmidity = $('<p>').text(`The current humidity is: ${currentHumidity}%`);
     let todayWind = $('<p>').text(`The current wind speed is: ${(currentWind*2.237).toFixed(2)}mph`);

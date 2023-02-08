@@ -87,26 +87,28 @@ function fiveDayForecast(){
         method:"GET"
     }).then(function(response) {
         console.log(response)
-        day1Date = response.list[4].dt
-        day1Icon = response.list[4].weather[0].icon
-        day1Temperature = response.list[4].main.temp
-        day1Humidity = response.list[4].main.humidity
-        day2Date = response.list[12].dt
-        day2Icon = response.list[12].weather[0].icon
-        day2Temperature = response.list[12].main.temp
-        day2Humidity = response.list[12].main.humidity
-        day3Date = response.list[20].dt
-        day3Icon = response.list[20].weather[0].icon
-        day3Temperature = response.list[20].main.temp
-        day3Humidity = response.list[20].main.humidity
-        day4Date = response.list[28].dt
-        day4Icon = response.list[28].weather[0].icon
-        day4Temperature = response.list[28].main.temp
-        day4Humidity = response.list[28].main.humidity
-        day5Date = response.list[36].dt
-        day5Icon = response.list[36].weather[0].icon
-        day5Temperature = response.list[36].main.temp
-        day5Humidity = response.list[36].main.humidity
+        let index12PM = response.list.findIndex(item => item.dt_txt.substring(11) === ("12:00:00"))
+        console.log(index12PM)
+        day1Date = response.list[index12PM].dt
+        day1Icon = response.list[index12PM].weather[0].icon
+        day1Temperature = response.list[index12PM].main.temp
+        day1Humidity = response.list[index12PM].main.humidity
+        day2Date = response.list[index12PM+8].dt
+        day2Icon = response.list[index12PM+8].weather[0].icon
+        day2Temperature = response.list[index12PM+8].main.temp
+        day2Humidity = response.list[index12PM+8].main.humidity
+        day3Date = response.list[index12PM+16].dt
+        day3Icon = response.list[index12PM+16].weather[0].icon
+        day3Temperature = response.list[index12PM+16].main.temp
+        day3Humidity = response.list[index12PM+16].main.humidity
+        day4Date = response.list[index12PM+24].dt
+        day4Icon = response.list[index12PM+24].weather[0].icon
+        day4Temperature = response.list[index12PM+24].main.temp
+        day4Humidity = response.list[index12PM+24].main.humidity
+        day5Date = response.list[index12PM+32].dt
+        day5Icon = response.list[index12PM+32].weather[0].icon
+        day5Temperature = response.list[index12PM+32].main.temp
+        day5Humidity = response.list[index12PM+32].main.humidity
         print5DayForecast();
     }
     )

@@ -8,7 +8,7 @@ Please enjoy the deployed application here: https://callumquirky.github.io/what-
 
 ## Description
 
-A weather application that utilises jQuery, moment.js and the OpenWeatherMap API to provide the user with the most update to date weather information for any city they want! The app has one section that dispays the current weather:
+A weather application that utilises jQuery, moment.js and the OpenWeatherMap API to provide the user with the most up to date weather information for any city they want! The app has one section that dispays the current weather:
 
 !['current-section'](./assets/images/today%20section.PNG)
 

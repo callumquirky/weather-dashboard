@@ -85,7 +85,7 @@ function fiveDayForecast(){
         url:queryURL,
         method:"GET"
     }).then(function(response) {
-        let index12PM = response.list.findIndex(item => item.dt_txt.substring(11) === ("12:00:00"))
+        let index12PM = response.list.findIndex(item => item.dt_txt.substring(8) === (`${moment().add(1, 'days').format("DD")} 12:00:00`))
         day1Date = response.list[index12PM].dt
         day1Icon = response.list[index12PM].weather[0].icon
         day1Temperature = response.list[index12PM].main.temp

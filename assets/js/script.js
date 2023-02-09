@@ -102,12 +102,23 @@ function fiveDayForecast(){
         day4Icon = response.list[index12PM+24].weather[0].icon
         day4Temperature = response.list[index12PM+24].main.temp
         day4Humidity = response.list[index12PM+24].main.humidity
+
+       if (index12PM+32 > response.list.length){
+        day5Date = response.list[39].dt
+        day5Icon = response.list[39].weather[0].icon
+        day5Temperature = response.list[39].main.temp
+        day5Humidity = response.list[39].main.humidity
+
+        print5DayForecast();
+       }
+       else {
         day5Date = response.list[index12PM+32].dt
         day5Icon = response.list[index12PM+32].weather[0].icon
         day5Temperature = response.list[index12PM+32].main.temp
         day5Humidity = response.list[index12PM+32].main.humidity
         print5DayForecast();
-    }
+       }
+     }
     )
 }
 
